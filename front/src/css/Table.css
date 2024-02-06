@@ -1,16 +1,56 @@
-.table {
-    width: max-content;
-}
-.table th {
-    text-align: center;
-    background-color: lightgray;
-}
-.table td {
-    text-align: center;
-}
-.td-test {
-    background-color: aquamarine;
-}
-.test {
-    display: flex;
-}
+ 
+    .table {
+        width: fit-content;
+        height: fit-content;
+        line-height: 1.5;
+    }
+    
+    .table th {
+        text-align: center;
+        background-color: rgba(26,51,92,0.4);
+        padding: 7px 20px;
+        font-size: 20px;
+    }
+
+    .tdTime {
+        background-color: rgba(26,51,92,0.2);
+        width: 40px;
+        padding: 7px 20px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .tdData1 {
+        width: 109.52px;
+        padding: 7px 20px;
+        text-align: center;
+    }
+
+    .tdData2 {
+        width: 149.3px;
+        padding: 7px 20px;
+        text-align: center;
+        border-right-width: 0.96px;
+    }
+
+    .tdData3 {
+        width: 109.92px;
+        padding: 7px 20px;
+        text-align: center;
+        border-left-width: 0.96px;
+    }
+
+    .tdData4 {
+        width: 148.3px;
+        padding: 7px 20px;
+        text-align: center;
+    }
+
+    .scrollableBody {
+        display: flex;
+        height: 200px;
+        overflow-y: scroll;
+    }
+    ::-webkit-scrollbar {
+        display: none;
+    }

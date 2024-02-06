@@ -12,6 +12,7 @@ import {
 } from "recharts";
 
 function Chart({data}) {
+  // Data를 가져오는 속도가 느릴 경우를 대비해서 빈 데이터 생성
   const blankData = [
     {
       time: 0,
@@ -22,18 +23,19 @@ function Chart({data}) {
 
   return (
     <div className="chart-container">
+      {/* 첫 번째 날짜에 대한 차트 그래프 생성 */}
       <div>
         <ComposedChart
-          width={700}
+          width={800}
           height={400}
-          data={data === null ? blankData : data.slice(0,24)}
+          // 첫 번째 날짜만 잘라서 표시
+          data={data === null ? blankData : data}
           margin={{
-            top: 20,
-            right: 20,
-            bottom: 20,
-            left: 20
+            top: 30,
+            left: 5,
+            right: 5
           }}
-          className="chart"
+          className="chart1"
         >
           <CartesianGrid stroke="#f5f5f5" />
           <XAxis dataKey="time" />
@@ -46,10 +48,12 @@ function Chart({data}) {
         </ComposedChart>
       </div>
 
-      <div>
+      {/* 두 번째 날짜에 대한 차트 그래프 생성 */}
+      {/* <div>
           <ComposedChart
           width={700}
-          height={400}
+          height={500}
+          // 두 번째 날짜만 잘라서 표시
           data={data === null ? blankData : data.slice(24,48)}
           margin={{
             top: 20,
@@ -57,7 +61,7 @@ function Chart({data}) {
             bottom: 20,
             left: 20
           }}
-          className="chart"
+          className="chart2"
         >
           <CartesianGrid stroke="#f5f5f5" />
           <XAxis dataKey="time" />
@@ -68,7 +72,7 @@ function Chart({data}) {
           <Bar yAxisId="right" dataKey="loc_total" barSize={20} fill="#413ea0" />
           <Line yAxisId="left" type="monotone" dataKey="loc_power" stroke="#ff7300" />
         </ComposedChart>
-      </div>
+      </div> */}
     </div>
   );
 }

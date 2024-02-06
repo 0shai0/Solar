@@ -1,0 +1,10 @@
+.ValueChart{
+    display: flex;
+}
+
+.showChart{
+    font-family: sans-serif;
+    text-align: center;
+    margin: 100px auto;
+   
+}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import pageable from "pageable";
 import BtnSlider from "./BtnSlider";
 import SolarInfo from './SolarInfo';
+import Footer from './Footer.js';
 import '../css/Slider.css';
 
 function Main() {
@@ -20,7 +21,7 @@ function Main() {
 
 
         // scale이 커지거나, translateY로 이동을 시키기 위해
-        // 클래스 이름을 붙임. 위의 기능은 CSS로 구현
+        // 클래스 이름을 붙임. 이동하는 기능은 CSS로 구현
     
         const handleHashChange = () => {
             const hash = window.location.hash.substring(1);
@@ -28,7 +29,7 @@ function Main() {
 
             // 스크롤하면 붙여졌던 클래스 이름을 없애는 코드
     
-            document.querySelectorAll(".scaleChage, .fontUp1, .fontUp2, .fontShow1").forEach((e) => {
+            document.querySelectorAll(".scaleChage, .fontUp1, .fontUp2, .fontUp3, .fontShow1").forEach((e) => {
                 e.classList.remove("active");
                 e.classList.remove("load");
             });
@@ -40,6 +41,7 @@ function Main() {
                 const scaleChageElement = targetSection.querySelector(".scaleChage");
                 const fontUp1 = targetSection.querySelector(".fontUp1");
                 const fontUp2 = targetSection.querySelector(".fontUp2");
+                const fontUp3 = targetSection.querySelector(".fontUp3");
                 const fontShow1 = targetSection.querySelector(".fontShow1");
 
 
@@ -49,6 +51,10 @@ function Main() {
     
                 if (fontUp1) {
                     fontUp1.classList.add("active");
+                }
+
+                if (fontUp3) {
+                    fontUp3.classList.add("active");
                 }
     
                 if (fontUp2) {
@@ -60,6 +66,11 @@ function Main() {
                 }
             }
         };
+
+  
+        // 아래 코드는 myPageable 인스턴스를 소멸시켜 해당 인스턴스가 사용하고 있던
+        // 자원들을 해제하고 메모리 누수를 방지, 이벤트 리스너 제거를 위해 넣음
+        // 결과적으로 myPageable의 객체를 소멸시키는 코드
     
         const destroyPageable = () => {
             const container = document.querySelector(selector);
@@ -119,12 +130,15 @@ function Main() {
 
     // 8초마다 다음 사진을 보이게 하기 위한 코드
 
-    // useEffect(()=>{
-    //     const interval = setInterval(()=>{
-    //         nextSlide();        
-    //     }, 8000);
-    //     return () => clearInterval(interval);
-    // });
+    useEffect(()=>{
+        const interval = setInterval(()=>{
+            nextSlide();        
+        }, 8000);
+        return () => clearInterval(interval);
+    });
+    
+
+    // solarInfo 페이지 안의 JSX 구조에 값을 넣는 코드
 
     const solarInfoProps = {
         fontUp1: "태양광 모듈",
@@ -158,7 +172,13 @@ function Main() {
                     <video muted autoPlay loop className="mainvideo">
                         <source src="./images/slslvideo.mp4" type="video/mp4" />
                     </video>
+                    {/* SolarInfo.js에 아래 코드의 JSX가 있습니다 */}
                     <SolarInfo fontUp1="태양광 모듈 선택시," fontUp2="발전수익과 설치비용 예측" />
+                    <div className="scroll-downs">
+                        <div className="mousey">
+                            <div className="scroller"></div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -169,9 +189,16 @@ function Main() {
                         src={process.env.PUBLIC_URL + `/images/Slider${slideIndex+1}.jpg`}
                         className="slideImg"
                         />
+                        {/* SolarInfo.js에 아래 코드의 JSX가 있습니다 */}
                         <SolarInfo {...solarInfoProps} />
+                        {/* BtnSlider.js에 아래 코드의 JSX가 있습니다 */}
                         <BtnSlider moveSlide={nextSlide} direction={"next"}/> 
-                        <BtnSlider moveSlide={prevSlide} direction={"prev"}/>                                                      
+                        <BtnSlider moveSlide={prevSlide} direction={"prev"}/>                                             
+                    </div>
+                    <div className="scroll-downs">
+                        <div className="mousey">
+                            <div className="scroller"></div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -181,8 +208,12 @@ function Main() {
                 <video muted autoPlay loop className="sub2video">
                     <source src="./images/askvideo.mp4" type="video/mp4" />
                 </video>
-                    <SolarInfo fontUp1="CONTACT US." fontUp2="SLSL과 함께하세요" Route= "InquiryInput" Button="문의하기"/>
+                    {/* SolarInfo.js에 아래 코드의 JSX가 있습니다 */}
+                    <SolarInfo fontUp3="CONTRACT US." fontUp2="SLSL과 함께하세요" Route= "InquiryInput" Button="문의하기"/>
                 </div>
+            </section>
+            <section data-anchor="Page 4" className="pg-page footer" id="page-4" style={{height:"100px"}}>
+                <Footer/>
             </section>
         </div>
     );
