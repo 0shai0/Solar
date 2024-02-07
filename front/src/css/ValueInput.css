@@ -1,5 +1,5 @@
 .ValueInputPages {
-    height:100vh;
+    height:1800px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,7 @@
     flex-direction: row;
     margin: 0 auto;
     /* 위치를 보기 위한 백그라운드 색상 */
-    background-color: #EEF3F6;
+    /* background-color: #EEF3F6; */
     width: 1000px;
     height: 450px;
     border-radius: 25px;
@@ -108,7 +108,7 @@
 }
 
 #selectPanel{
-    width: 500px;
+    width: 350px;
 }
 
 /* #selectPanel, #selectLocal, #inputArea,  */

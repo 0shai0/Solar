@@ -18,6 +18,10 @@
     #Mapsvg > path{
         stroke: white;
     }
+    #Mapsvg > path:hover{
+        outline: none;
+        fill: gainsboro;
+    }
 
     #Mapsvg > path:active{
         outline: none;

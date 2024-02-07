@@ -185,10 +185,12 @@ const ValueResult = () => {
                     <tr>
                         <td>예상 판매 금액 :</td>
                         <td>(원)</td>
+                        <td>흑자 전환 시기 :</td>
+                        <td>{firstDate} (임시)</td>
                     </tr>
 
                     <tr>
-                        <td>설치 가능 패널 개수 : </td>
+                        <td>설치 가능 어레이 개수 : </td>
                         <td> <span className='fontColor'>{amount}&nbsp;</span>&nbsp;(개)</td>
                         <td>초기 투자 비용 :</td>
                         <td><span className='fontColor'>{formatNumber(InitaialCost)}&nbsp;</span>&nbsp;(원)</td>

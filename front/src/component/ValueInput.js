@@ -4,7 +4,7 @@ import DatePicker from 'react-datepicker';
 import MapsvgPath from './MapsvgPath';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useNavigate } from 'react-router-dom';
-
+import ValueInfo from './ValueInfo';
 const ValueInput = () => {
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
@@ -170,8 +170,8 @@ const ValueInput = () => {
                                 <td colSpan="3">
                                     <select name = "selectPanel" id = "selectPanel" required onChange={ClickChange}>
                                         <option value=""disabled selected hidden>모듈을 선택하세요.</option>
-                                        <option value="fromKorea">국산 PEAKDVQ XL G11.7(570Wp) (어레이당 필요면적 : 67.81m²)</option>
-                                        <option value="fromUSA">미국산 AmeriSolar AS-qm120-HC(580Wp) (어레이당 필요면적 : 87.527m²)</option>
+                                        <option value="fromKorea">국산 PEAKDVQ XL G11.7(570Wp)</option>
+                                        <option value="fromUSA">미국산 AmeriSolar AS-qm120-HC(580Wp)</option>
                                     </select>
                                 </td>
                             </tr>
@@ -231,8 +231,11 @@ const ValueInput = () => {
                             </tr>
                         </table>
                     </form>
-                </section>
+
+                </section>       
             </div>
+            
+            <ValueInfo/>
         </article>
 
     );
