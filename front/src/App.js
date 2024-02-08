@@ -12,8 +12,7 @@ import Product from "./component/Product";
 import InquiryInput from "./component/InquiryInput";
 import ValueInput from "./component/ValueInput";
 import MapSelect from "./component/MapSelect";
-import ValueResult from './component/ValueResult';
-
+import ValueResult from './component/ValueResult.js';
 function App() {
   return (
     <div>
