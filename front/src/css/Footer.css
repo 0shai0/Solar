@@ -1,17 +1,42 @@
 
   .footer {
-    background-color: #1C3879;
-    color: white;
-    /* text-align: center; */
+    background-color: white;
+    color: grey;
     line-height: 150%;
-    font-size: larger;
+    font-size: 15px;
     width: 100%;
-    display: flex;
-    justify-content: center;
     align-items: center;
-    height:20vh;
-    position: absolute;
-    line-height: 200%;
-    font-weight: bold;
-    padding-top:2vh;
+    padding: 30px 0;
+    border-top: solid rgba(0,0,0,0.144) 1px;
+  }
+
+  .footerSection{
+    margin: 0 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .footerLogo{
+    width: 70px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+
+  #gitBtn{
+    cursor: pointer;
+    display: flex;
+    width: auto;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  #gitBtn>svg{
+    fill:grey;
+    margin-right: 10px;
+  }
+
+  #gitBtn:hover{
+    color: rgb(12, 12, 12);
+    
   }

@@ -1,41 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import FaqList from './FaqList';
+import '../css/FAQ.css';
 
 function FAQ() {
-
-    const [qnaUP , setQnAUP] = useState(false);
-    const [faqUP , setFaqUP] = useState(false);
-
-    useEffect(() => {
-        setQnAUP(true);
-        setFaqUP(true);
-    })
-
     return(
-        <div className='QnA'>
-            <div className='qnaIn'>
-                <h1 className='faqTitle'>FAQ</h1>
-            <div className='qnabox'>
-                <div className='QnAPhoto'>
-                    <div className={`QnAPhotoBox ${qnaUP ? 'active' : ''}`}>
-                        <div className='QnATitle'>
-                            <h1>태양광 시작하려니<br/>막막하신가요?</h1>
-                            <p>SLSL에서 시작하면 쉬워져요!</p>
-                        </div>
-                        <div className='imgCover'>
-                            <div className='QnAImg'/>
-                        </div>
-                    </div>
+        <article className='faq'>
+            <section className='faqImg'>
+                <img className='faqImgTop' src='./images/FAQ.jpg'/>
+                <div className='faqTop'>
+                <div className='faqTitle'>
+                    <h1 className='faqTitleMain active'>SLSL에 대해서 궁금한가요?</h1>
                 </div>
-                <div className="faq">
-                    <div className={`faqText ${faqUP ? 'active' : ''}`}>
-                        {/* FaqItem, FaqList에서 받은 값을 아래 코드에 구현 */}
-                        <FaqList/>
-                    </div>
+
+                <div className='faqTitle'>
+                    <p className='faqTitleSub active'>자주 묻는 질문을 확인해 보세요!</p>
                 </div>
-            </div>
-            </div>
-        </div>
+                </div>
+            </section>
+
+            <section className="faqList">
+                {/* FAQ 내용 */}
+                <FaqList/>
+            </section>
+        </article>
     )
 }
 

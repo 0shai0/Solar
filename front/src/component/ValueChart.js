@@ -25,7 +25,7 @@ const ValueChart = ({data}) =>{
         <ComposedChart
           width={700}
           height={400}
-          data={data === null ? blankData : data.slice(0,24)}
+          data={data === null ? blankData : data}
           margin={{
             top: 20,
             right: 20,
@@ -34,14 +34,14 @@ const ValueChart = ({data}) =>{
           }}
           className="showChart"
         >
-          <CartesianGrid stroke="#f5f5f5" />
+          <CartesianGrid stroke="lightgray" />
           <XAxis dataKey="date"/>
-          <YAxis yAxisId="left" label={{value: "예상수익(원)", offset: 10, angle: 0, position: "top", fontSize: "10px"}}/>
+          <YAxis yAxisId="left" label={{value: "예상 수익(원)", offset: 10, angle: 0, position: "top", fontSize: "10px"}}/>
           {/* <YAxis yAxisId="right" label={{value: "누적예상수익(원)", offset: 10, angle: 0, position: "top", fontSize: "10px"}} orientation="right"/> */}
           <Tooltip/>
           <Legend />
           {/* <Bar yAxisId="right" dataKey="money" barSize={20} fill="#413ea0" /> */}
-          <Line yAxisId="left" type="monotone" dataKey="money" stroke="#ff7300" />
+          <Line yAxisId="left" type="monotone" dataKey="money" stroke="red" />
         </ComposedChart>
         </article>
     );

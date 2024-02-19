@@ -23,7 +23,10 @@ const Header = () => {
     // 로고 클릭 시 메인 페이지로 이동하는 코드
 
     function logobtnclick(e) {
+
         window.location.href = "/"
+        sessionStorage.clear();
+        
     };
 
     // 제품 소개 클릭 시 Product로 이동하는 코드
@@ -31,79 +34,73 @@ const Header = () => {
     // 메인 페이지일 때는 window.location.href 이용
 
     function productbtnclick(e) {
-        if (currentPath === "/") {
-            window.location.href = "/Product"
-        } else {
-            navigate("/Product");
-        }
+
+        window.location.href = "/product"
+        sessionStorage.clear();
+
     };
 
-    // 제품 소개 클릭 시 MapSelect로 이동하는 코드
+    // 발전량 예측 조회 클릭 시 MapSelect로 이동하는 코드
     // 메인 페이지에서 navigate로 이동 시 "Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node." 라는 버그가 있어
     // 메인 페이지일 때는 window.location.href 이용
 
     function predictInputClick(e) {
-        if (currentPath === "/") {
-            window.location.href = "/MapSelect"
-        } else {
-            navigate("/MapSelect");
-        }
+
+        window.location.href = "/mapselect"
+        sessionStorage.clear();
+
     };
 
-    // 제품 소개 클릭 시 ValueInput로 이동하는 코드
+    // 발전 수익 및 설치비용 예측 조회 클릭 시 ValueInput로 이동하는 코드
     // 메인 페이지에서 navigate로 이동 시 "Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node." 라는 버그가 있어
     // 메인 페이지일 때는 window.location.href 이용
 
     function valueInputClick(e) {
-        if (currentPath === "/") {
-            window.location.href = "/ValueInput"
-        } else {
-            navigate("/ValueInput");
-        }
+
+        window.location.href = "/valueinput"
+
     }
 
-    // 제품 소개 클릭 시 FAQ로 이동하는 코드
+    // FAQ 클릭 시 FAQ로 이동하는 코드
     // 메인 페이지에서 navigate로 이동 시 "Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node." 라는 버그가 있어
     // 메인 페이지일 때는 window.location.href 이용
 
     function faqbtnclick(e) {
-        if (currentPath === "/") {
-            window.location.href = "/FAQ"
-        } else {
-            navigate("/FAQ");
-        }
+
+        window.location.href = "/faq"
+        sessionStorage.clear();
+
     };
 
-    // 제품 소개 클릭 시 InquiryInput로 이동하는 코드
+    // 문의하기 클릭 시 InquiryInput로 이동하는 코드
     // 메인 페이지에서 navigate로 이동 시 "Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node." 라는 버그가 있어
     // 메인 페이지일 때는 window.location.href 이용
 
     function askbtnclick(e) {
-        if (currentPath === "/") {
-            window.location.href = "/InquiryInput"
-        } else {
-            navigate("/InquiryInput");
-        }
+
+        window.location.href = "/inquiryinput"
+        sessionStorage.clear();
+
     };
     
     useEffect(() => {
 
         // setIsOpen을 true로 바꾸어 클래스 이름을 추가하기 위한 코드
 
-        const visible = currentPath === '/Product' || currentPath === '/MapSelect' || currentPath === '/ValueInput' || currentPath === '/FAQ' || currentPath === '/InquiryInput' || currentPath === '/ValueResult';
+        const visible = currentPath === '/product' || currentPath === '/mapselect' || currentPath === '/valueinput' || currentPath === '/faq' || currentPath === '/inquiryinput' || currentPath === '/valueresult';
         setIsOpen(visible);
 
         // setClickedCategory에 값을 집어 넣어 특정 카테고리 요소에 클래스를 이름을 추가하는 코드
 
-        if (currentPath === '/Product') {
+        if (currentPath === '/product') {
             setClickedCategory('product');
-        } else if (currentPath === '/MapSelect') {
+        } else if (currentPath === '/mapselect') {
             setClickedCategory('predictInput');
-        } else if (currentPath === '/ValueInput' || currentPath === '/ValueResult') {
+        } else if (currentPath === '/valueinput' || currentPath === '/valueresult') {
             setClickedCategory('valueInput');
-        } else if (currentPath === '/FAQ') {
+        } else if (currentPath === '/faq') {
             setClickedCategory('faq');
-        } else if (currentPath === '/InquiryInput') {
+        } else if (currentPath === '/inquiryinput') {
             setClickedCategory('ask');
         }
     }, [window.location.pathname])
@@ -123,22 +120,24 @@ const Header = () => {
     
 
     return (
-        <article>
+        <article className={`headerarticle ${isOpen ? '' : 'active'}`}>
             {/* 메인페이지 헤더 */}
             <section className={`headermain ${isOpen ? '' : 'active'}`}>
                 <img src="images/slsllogoHeader.png" className={`logo2 ${isOpen ? '' : 'active'}`} onClick={logobtnclick} alt="logo" />
+                
                 <div id="cursor" className="menuicon" onClick={handleMenuToggle} >
-
-                {/* FaBars는 햄버거 요소 JSX 코드임. isOpen이 true면 클래스 이름에 active 추가 */}
-                <FaBars size={50} color="white" className={`faBars ${isOpen ? 'active' : ''}`} />
-                {isMenuOpen && 
-                    (<div className="menuboard">
-                        <button className="btn" onClick={productbtnclick}>제품 소개 </button><br />
-                        <button className="btn" onClick={predictInputClick}>발전량 예측 조회 </button><br />
-                        <button className="btn" onClick={valueInputClick}>태양광 발전수익 및<br />모듈비용 예측 </button><br />
-                        <button className="btn" onClick={faqbtnclick}>FAQ </button> <br />
-                        <button className="btn" onClick={askbtnclick}>문의하기</button>
-                    </div>)}
+                    <div className='faBars_container'>
+                        {/* FaBars는 햄버거 요소 JSX 코드임. isOpen이 true면 클래스 이름에 active 추가 */}
+                        <FaBars size={60} style={{marginBottom:"10px"}} color="white" className={`faBars ${isOpen ? 'active' : ''}`} />
+                        {isMenuOpen && 
+                            (<div className="menuboard">
+                                <button className="btn" onClick={productbtnclick}>제품 소개 </button><br/>
+                                <button className="btn" onClick={predictInputClick}>발전량 예측 조회 </button><br/>
+                                <button className="btn" onClick={valueInputClick}>발전 수익 및<br/>설치비용 예측 조회</button><br/>
+                                <button className="btn" onClick={faqbtnclick}>FAQ </button> <br/>
+                                <button className="btn" onClick={askbtnclick}>문의하기</button>
+                            </div>)}
+                    </div>
                 </div>
             </section>
 
@@ -148,13 +147,14 @@ const Header = () => {
                     <StyledSection>
                         <section className={`headerdetail ${isOpen ? 'active' : ''}`}>
                             <img src="images/slsllogo.png" className={`logo1 ${isOpen ? 'active' : ''}`} onClick={logobtnclick} alt="logo" />
-                                <div id='categoryBox'>
-                                    <div className={`category ${clickedCategory === 'product' ? 'clicked' : ''}`} onClick={productbtnclick}>제품소개 </div><br />
-                                    <div className={`category ${clickedCategory === 'predictInput' ? 'clicked' : ''}`} onClick={predictInputClick}>발전량 예측조회 </div><br />
-                                    <div className={`category ${clickedCategory === 'valueInput' ? 'clicked' : ''}`} onClick={valueInputClick}>발전수익 및 모듈비용 예측 </div><br />
-                                    <div className={`category ${clickedCategory === 'faq' ? 'clicked' : ''}`} onClick={faqbtnclick}>FAQ </div> <br />
-                                    <div className={`category ${clickedCategory === 'ask' ? 'clicked' : ''}`} onClick={askbtnclick}>문의하기</div>
-                                </div>
+                                
+                            <div id='categoryBox'>
+                                <div className={`category ${clickedCategory === 'product' ? 'clicked' : ''}`} onClick={productbtnclick}>제품 소개 </div><br/>
+                                <div className={`category ${clickedCategory === 'predictInput' ? 'clicked' : ''}`} onClick={predictInputClick}>발전량 예측 조회 </div><br />
+                                <div className={`category ${clickedCategory === 'valueInput' ? 'clicked' : ''}`} onClick={valueInputClick}>발전 수익 및 설치비용 예측 조회 </div><br />
+                                <div className={`category ${clickedCategory === 'faq' ? 'clicked' : ''}`} onClick={faqbtnclick}>FAQ </div> <br />
+                                <div className={`category ${clickedCategory === 'ask' ? 'clicked' : ''}`} onClick={askbtnclick}>문의하기</div>
+                            </div>
                                 
                         </section>
                     </StyledSection>
@@ -172,7 +172,7 @@ const StyledHeader = styled.article`
     top: 0;
     height: 100px;
     transition: top 0.3s;
-
+    z-index: 3;
     &.hide {
         top: -100px;
     }
@@ -183,4 +183,5 @@ const StyledSection = styled.section`
     justify-content: space-around;
     align-items: center;
     height: 100%;
+    
 `;

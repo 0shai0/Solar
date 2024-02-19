@@ -1,96 +1,105 @@
-.ValueResultPages { 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-image: url('../../public/images/suncell.jpg');
-    background-repeat:no-repeat;
-    background-position: center;
-}
 
-.ValueResultPagesIn {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
+    .ValueResultPages { 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-size:cover;
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
 
-#ValueResultTitle{
-    display: flex;
-    margin-top:120px;
-    margin-bottom:10px;
-    color:white;
-    font-size: 26px;
-}
+    .ValueResultPagesIn {
+        position: relative;
+    }
 
-.ValueResult{
-    display: flex;
-    flex-direction: column;
-    background-color: #EEF3F6;
-    width: 1000px;
-    height: 1000px;
-    border-radius: 25px;
-    padding: 20px;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color:rgba(256,256,256,0.3);
-    backdrop-filter: blur(20px);
-    margin-bottom:70px;
-}
+    #ValueResultTitle{
+        font-size: 40px;
+        position: absolute;
+        top: -40px;
+        width: 1000px;
+        display: flex;
+        justify-content: flex-start;
+        text-align: left;
+    }
 
-.ValueResultTable{
-    width: 800px;
-    font-size: 18px;
-    font-weight: bold;
-}
+    #ValueResultTitle>span{
+        width: 40%;
+        background: linear-gradient(to top, rgb(209, 234, 255) 40%, transparent 40%);
+    }
 
-.ResultCostTable{
-    width: 800px;
-    font-size: 18px;
-    font-weight: bold;
-}
+    .ValueResult{
+        display: flex;
+        flex-direction: column;
+        width: 950px;
+        height: 900px;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-.ValueResultTable>tr>td,.ResultCostTable>tr>td {
-    /* border: solid 1px black; */
-}
-.ResultCostTable>tr>td:nth-child(1){
-    width: 200px;
+    .ValueChartBox{
+        box-shadow: 0 0 20px lightgray;
+        width: 950px;
+        border-radius: 5px;
+    }
+
+    .ValueResultTable{
+        width: 900px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .ResultCostTable{
+        width: 900px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .ValueResultTable>tr>td,.ResultCostTable>tr>td {
+        /* border: solid 1px black; */
+    }
+
+    .ResultCostTable>tr>td:nth-child(1){
+        width: 200px;
+        text-align:justify;
+    }
+
+    .ResultCostTable>tr>td:nth-child(3){
+    width: 180px;
     text-align:justify;
- }
+    }
 
+    .ValueResultTable>tr>td:nth-child(2){
+        padding-right: 10px;
+    }
 
-.ResultCostTable>tr>td:nth-child(3){
-   width: 180px;
-   text-align:justify;
-}
+    .ResultCostTable>tr>td:nth-child(2){
+        padding-right: 5px;
+    }
 
-.ValueResultTable>tr>td:nth-child(2){
-    padding-right: 10px;
-}
+    .fontLine {
+        width:150px;
+        font-size:23px;
+        background: linear-gradient(to top, rgb(209, 234, 255) 40%, transparent 40%);
+    }
 
-.ResultCostTable>tr>td:nth-child(2){
-    padding-right: 5px;
-}
+    .fontColor{
+        color: #0B74E2;
+    }
 
-.fontLine {
-    width:150px;
-    background: linear-gradient(to top, #bfdeffe1 50%, transparent 50%);
-}
+    #btnClickInput{
+        width: 250px;
+        height: 40px;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        background-color: #0B74E2;
+        font-size: 20px;
+        margin-top: 20px;
+        cursor: pointer;
+    }
 
-.fontColor{
-    color: blue;
-}
-
-#btnClickInput{
-    width: 250px;
-    height: 40px;
-    border: none;
-    color: white;
-    border-radius: 5px;
-    background-color: #607EAA;
-    font-size: 20px;
-    margin-top: 20px;
-}
-
-#btnClickInput:hover{
-    background-color: #607EAA;
-}
+    #btnClickInput:hover{
+        background-color: #0b6acf;
+    }
+    

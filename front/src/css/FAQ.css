@@ -1,104 +1,189 @@
-    
-    .QnA {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom:60px;
-    }
-
-    .qnaIn {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-    }
-
-    .qnabox{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color:rgba(256,256,256,0.3);
-        backdrop-filter: blur(20px);
-        background-position: center;
-        border-radius: 15px;
-        width:1000px;
-    }
-
-    .QnAPhoto {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        width: 600px;
-    }
-
-    .QnAPhotoBox {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .faqTitle {
-        margin-top:120px;
-        margin-bottom: 10px;
-        color: white;
-        font-size: 26px;
-    }
-
+    /* FAQ.js */
     .faq {
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .faqImg {
+        display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        width: 600px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.144);
     }
 
-    .slslEasy {
-        margin-top: 20px;
-        margin-bottom: 20px;
+    .faqImgTop {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        filter: brightness(80%);
+    }
+
+    /* .faqImgTop::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000000;
+        z-index: -1;
+        opacity: 0.3;     
+    } */
+
+    .faqTop {
+        position: absolute;
+    }
+    
+    .faqTitle {
+        color: white;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .faqTitleMain {
+        font-size: 34px;
+        margin-bottom: 18px;
+        opacity: 0;
+    }
+
+    .faqTitleMain.active {
+        animation: show_txt .4s .5s ease-in-out forwards;
+    }
+
+    .faqTitleSub {
+        font-size: 22px;
+        opacity: 0;
+    }
+
+    .faqTitleSub.active {
+        animation: show_txt .7s .8s ease-in-out forwards;
+    }
+
+    .faqList {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 1400px;
+        margin-top: 60px;
+        margin-bottom: 60px;
     }
 
     .faqText {
         display: flex;
         flex-direction: column;
-        width: 600px;
+        justify-content: center;
+        width: 100%;
     }
 
-    .text {
+    /* FaqList.js */
+    .subAnswer {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.7);
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .answerHeight {
+        line-height: 26px;
+    }
+
+    .subLink {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.7);
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        text-decoration: none;
+    }
+
+
+    /* 색깔 변경 */
+
+    .subLink:hover {
+        color: white;
+    }
+
+    .faqText table {
+        border-spacing: 40px;
+    }
+
+    .faqText td {
+        border: 1px solid #EBEDEF;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+        position: relative;
+        width: 50%;
+        height: 150px;
+    }
+
+    /* FaqItem.js */
+    .qna {
         display: flex;
-        flex-direction: column;
-        padding-bottom: 40px;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+        cursor: default;
+        height: 100%;
+        border-radius: 10px;
+        background-color: #5568b1;
     }
 
     .questionList {
         display: flex;
+        justify-content: center;
         align-items: center;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: white;
+        z-index: 1;
+        transition: all 0.7s;
+        border: 1px solid #EBEDEF;
+    }
+    
+    .qna:hover .questionList {
+        transform: translateY(-100%);
+    }
+    
+    .qna:not(:hover) .questionList {
+        transform: translateY(0%);
+    }
+
+    .questionListCover {
+        display: flex;
+        align-items: center;
+        width: 80%;
+    }
+    
+    .qnaQ, .qnaA {
+        font-size: 42px;
+        width: 60px;
+    }
+    
+    .qnaQuestion {
+        padding-top: 5px;
+        font-size: 22px;
+        font-weight: bold;
+        width: fit-content;
     }
 
     .answerList {
         display: flex;
+        justify-content: left;
         align-items: center;
+        width: 80%;
+        color: white;
     }
 
-    .QnAImg {
-        background: url('../../public/images/QnA.png');
-        background-size: cover;
-        background-position: center;
-        width: 240px;
-        height: 490px;
-    }
-
-    .faqQ {
-        font-size: 42px;
-        width: 50px;
-    }
-
-    .faqQuestion {
-        padding-top: 10px;
-        font-size: 22px;
-    }
-
-    .faqAnswer {
-        height: 40px;
-        padding: 20px 0 0 20px;
-        font-size: 16px;
+    .qnaAnswer {
+        padding-top: 5px;
+        font-size: 21px;
+        width: fit-content;
     }

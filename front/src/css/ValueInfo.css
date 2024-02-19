@@ -1,9 +1,10 @@
+.ValueInfo{
+   /* border: 1px solid blue; */
+}
+
 .howtoInput_head{
-    margin-top: 30px;
-    background-color:rgba(256,256,256,0.3);
-    backdrop-filter: blur(20px);
+    margin-top: 40px;
     border-radius: 15px;
-    padding-left:20px;
     padding-bottom:10px;
 }
 
@@ -11,19 +12,25 @@
     padding: 10px;
 }
 
+.howtoInput_title>h2{
+    font-size: 28px;
+}
+
 .howtoInput_title>div{
-    font-size: 21px;
+    font-size: 20px;
     margin-top: 20px;
     font-weight: bold;
 }
+
 .howtoInput_title>div>span{
-    color: #607EAA;
+    color: #0B74E2;
 }
+
 .howtoInput_ol {
     list-style: none;
     counter-reset: list-number;
     padding: 0;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .howtoInput_ol >li{
@@ -40,11 +47,10 @@
     content: counter(list-number);
     margin-right: 10px;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .howtoInput_ol>li:nth-child(2),.howtoInput_ol>li:nth-child(4){
-
     padding-bottom: 5px;
 }
 
@@ -62,67 +68,74 @@
     justify-content: center;
     flex-direction: column;
     margin-top: 30px;
-    border-radius: 15px;
-    background-color:rgba(256,256,256,0.3);
-    backdrop-filter: blur(20px);
-    padding-bottom:10px;
-    padding-left:20px;
 }
+
 #arrayTitle{
     margin-bottom: 30px;
 }
+
 #arrayTitle>h2{
     width: 220px;
-    background: linear-gradient(to top, #607EAA 50%, transparent 50%);
+    background: linear-gradient(to top, #EAE3D2 50%, transparent 50%);
 }
+
 #arrayTitle>h2>span{
-    color: #F9F5EB;
+    color: #0B74E2;
 }
+
 #arrayTitle>div{
     font-size: 20px;
     text-align: center;
     margin: 15px 0 15px 0; 
 }
 
-.arrayInfo>ul>li {
-    padding: 5px;
-}
-.arrayInfo > ul{
-    list-style: none;
-    font-size: 18px;
-    
-}
 #arrayInfobox{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    
 }
+
 #arrayImg{
     width: 300px;
-    height: 150px;
+    height: 200px;
     border-radius: 12px;
-    background-image: url("../../public/images/usacell.png") ;
+    background-image: url("../../public/images/ValueInfoImg.png") ;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
 }
+
+.arrayInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.arrayInfo>ul>li {
+    padding: 5px;
+}
+
+.arrayInfo > ul{
+    list-style: none;
+    font-size: 18px;
+}
+
 .arrayInfo > ul>li>span{
-    color: #EAE3D2;
+    color: #0B74E2;
     font-weight: bold;
 }
 
 #arrayInfoBtn{
     margin-top: 10px;
-    border: none;
-    background-color: #EAE3D2;
-    border-radius: 20px;
-    padding: 5px;
     width: 100%;
-    font-weight:600;
+    height: 40px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    background-color:  #0B74E2;
     font-size: 18px;
+    cursor: pointer;
 }
 
 #arrayInfoBtn:hover{
-    background-color: #EAE3D2;
-    font-weight:600;
+    background-color: #0b6acf;
 }
